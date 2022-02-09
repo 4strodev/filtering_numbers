@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+
+import random
+import sys
+
+def main():
+    o_file = open("randNumbers.txt", "w")
+
+    n_lines = int(sys.argv[1])
+    size_lines = int(sys.argv[2])
+
+    for _ in range(n_lines):
+        # creating a line of random numbers
+        line = create_line(size_lines)
+        o_file.write(line)
+
+    o_file.close()
+
+
+def create_line(length: int) -> str:
+    line = ""
+    for _ in range(length):
+        rand_number = random.randint(0,101)
+        line += f"{rand_number} "
+
+    return line.strip() + "\n"
+
+
+if __name__ == "__main__":
+    main()
